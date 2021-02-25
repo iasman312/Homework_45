@@ -1,11 +1,11 @@
 from django.db import models
+status_choices = [('new', 'Новая'), ('in_progress', 'В процессе'),
+                  ('done', 'Сделано')]
 
 
 class Task(models.Model):
-    status_choices = [('new', 'Новая'), ('in_progress', 'В процессе'),
-                      ('done', 'Сделано')]
     title = models.CharField(max_length=120, null=False, blank=False)
-    status = models.CharField(max_length=150, null=False, blank=False,
+    status = models.CharField(max_length=150, choices=status_choices,
                               default="new")
     up_to = models.DateField(null=True, blank=True)
 
