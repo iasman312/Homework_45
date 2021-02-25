@@ -6,12 +6,15 @@
 </head>
 <body>
 <h1>Create Article</h1>
-<form action="/task/add/" method="post">
+<form action="/tasks/add/" method="post">
     {% csrf_token %}
     <label>Title:</label><br/>
     <input type="text" name="title"/><br/>
-    <label>Status:</label><br/>
-
+    <select name="status">
+        {% for value, name in status_choices %}
+            <option value="{{ value }}">{{ name }}</option>
+        {% endfor %}
+    </select>
     <input type="submit" value="Send"/>
 </form>
 </body>
