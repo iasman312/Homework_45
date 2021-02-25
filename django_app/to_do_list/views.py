@@ -14,6 +14,13 @@ def task_view(request):
     return render(request, 'task_view.html', context={'task': task})
 
 
+def delete_task(request):
+    task_id = request.GET.get('id')
+    Task.objects.filter(id=task_id).delete()
+    tasks = Task.objects.all()
+    return render(request, 'index.html', context={'tasks': tasks})
+
+
 def task_create_view(request):
     if request.method == "GET":
         context = {'status_choices': status_choices}
