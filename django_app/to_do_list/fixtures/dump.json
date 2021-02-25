@@ -1,0 +1,29 @@
+[
+{
+  "model": "to_do_list.task",
+  "pk": 4,
+  "fields": {
+    "title": "Peer",
+    "status": "done",
+    "up_to": "2019-12-19"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$Q4pNJiPimZ5Q$nd9TpW5tdUAVtOz7949VcqvaVgVv96rxe96oqIa1jAA=",
+    "last_login": "2021-02-25T09:39:53.330Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-02-25T09:39:11.528Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
