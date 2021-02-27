@@ -8,6 +8,7 @@ class Task(models.Model):
     status = models.CharField(max_length=150, choices=status_choices,
                               default="new")
     up_to = models.DateField(null=True, blank=True)
+    description = models.TextField(max_length=1000, null=True, blank=True)
 
     class Meta:
         db_table = 'tasks'
