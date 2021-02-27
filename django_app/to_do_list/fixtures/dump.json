@@ -1,11 +1,22 @@
 [
 {
   "model": "to_do_list.task",
-  "pk": 4,
+  "pk": 1,
   "fields": {
-    "title": "Peer",
-    "status": "done",
-    "up_to": "2019-12-19"
+    "title": "Проснуться в 6:00",
+    "status": "new",
+    "up_to": "2019-12-19",
+    "description": "Нужно встать в 6 и выйти на пробежку"
+  }
+},
+{
+  "model": "to_do_list.task",
+  "pk": 7,
+  "fields": {
+    "title": "Читать книжки",
+    "status": "new",
+    "up_to": "2021-04-19",
+    "description": "Каждый день по 20 стр"
   }
 },
 {
