@@ -11,7 +11,7 @@
     <p>Title: {{ task.title }}</p>
     <p>Status: {{ task.get_status_display }}</p>
     <p>Date: {{ task.up_to }}</p>
-    <p>Description: {{ task.description }}</p>
+    <p class="whitespace">Description: {{ task.description }}</p>
     <a href="{% url "task-delete" task.id %}">Delete the task</a>
 </div>
 {% endblock content %}
