@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 from .models import Task, status_choices
 
@@ -8,15 +10,14 @@ def index_view(request):
     return render(request, 'index.html', context={'tasks': tasks})
 
 
-def task_view(request):
-    task_id = request.GET.get('id')
-    task = Task.objects.get(id=task_id)
+def task_view(request, pk):
+    task = get_object_or_404(Task, id=pk)
     return render(request, 'task_view.html', context={'task': task})
 
 
-def delete_task(request):
-    task_id = request.GET.get('id')
-    Task.objects.filter(id=task_id).delete()
+def delete_task(request, pk):
+    task = get_object_or_404(Task, id=pk)
+    task.delete()
     tasks = Task.objects.all()
     return render(request, 'index.html', context={'tasks': tasks})
 
@@ -37,6 +38,4 @@ def task_create_view(request):
             up_to=up_to,
             description=description,
         )
-
-        return render(request, 'task_view.html', context={'task': task})
-
+        return redirect('task-view', pk=task.id)

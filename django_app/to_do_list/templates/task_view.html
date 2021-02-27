@@ -25,7 +25,7 @@
 </head>
 <body>
     <div>
-        <a href="/">view task list</a>
+        <a href="{% url "task-list" %}">view task list</a>
         <br>
         <br>
         <h1>Task: {{ task.id }}</h1>
@@ -33,7 +33,7 @@
         <p>Status: {{ task.get_status_display }}</p>
         <p>Date: {{ task.up_to }}</p>
         <p>Description: {{ task.description }}</p>
-        <a href="/delete_task?id={{ task.id }}">Delete the task</a>
+        <a href="{% url "task-delete" %}">Delete the task</a>
     </div>
 </body>
 </html>
