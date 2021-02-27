@@ -29,11 +29,13 @@ def task_create_view(request):
         title = request.POST.get("title")
         status = request.POST.get("status")
         up_to = request.POST.get("up_to")
+        description = request.POST.get("description")
 
         task = Task.objects.create(
             title=title,
             status=status,
-            up_to=up_to
+            up_to=up_to,
+            description=description,
         )
 
         return render(request, 'task_view.html', context={'task': task})
