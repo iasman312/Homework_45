@@ -28,6 +28,8 @@ def task_create_view(request):
         title = request.POST.get("title")
         status = request.POST.get("status")
         up_to = request.POST.get("up_to")
+        if not up_to:
+            up_to = None
         description = request.POST.get("description")
 
         task = Task.objects.create(
