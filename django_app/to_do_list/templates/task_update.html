@@ -7,11 +7,9 @@
 {% block page_header %}Update a task{% endblock page_header %}
 
 {% block content %}
-<div>
-    <h1>Edit task {{ task.id }}</h1>
+    <h1>Update task {{ task.id }}</h1>
     <form action="{% url "task-update" task.id %}" method="post">
         {% include "task_form.html" %}
         <input type="submit" value="Update"/>
     </form>
-</div>
 {% endblock content %}

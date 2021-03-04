@@ -10,13 +10,14 @@
 
 {% block content %}
 <div>
-    <a href="{% url "task-list" %}">view task list</a>
-    <br>
-    <br>
     <h1>Task: {{ task.id }}</h1>
     <p>Title: {{ task.title }}</p>
     <p>Status: {{ task.get_status_display }}</p>
-    <p>Date: {{ task.up_to }}</p>
+    {% if task.up_to == None %}
+        <p>Date: Anything </p>
+    {% else %}
+        <p>Date: {{ task.up_to }}</p>
+    {% endif %}
     <p class="whitespace">Description: {{ task.description }}</p>
 </div>
 {% endblock content %}

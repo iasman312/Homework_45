@@ -1,17 +1,19 @@
 body {
-    background-color: #9999ff;
+    margin-top: 60px;
 }
-div {
-    background-color: #ccccff;
-    width: 40%;
-    padding-left: 70px;
-    padding-bottom: 50px;
-    padding-top: 50px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
+
+.container{
+    width: 80%;
+    margin: 0 auto;
 }
-.whitespace {
-    white-space: pre;
+
+.form-error {
+    color: #753a3a;
+    font-size: 12px;
+    margin: 5px 0 0 0
+}
+.form-field-error {
+    border: solid 1px red;
+    box-shadow: red 0 0 3px;
+    display: inline-block;
 }
