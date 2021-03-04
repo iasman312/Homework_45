@@ -71,3 +71,8 @@ def task_delete_view(request, pk):
     elif request.method == 'POST':
         task.delete()
         return redirect('task-list')
+
+
+def tasks_delete_all_view(request):
+    Task.objects.all().delete()
+    return render(request, 'index.html')
