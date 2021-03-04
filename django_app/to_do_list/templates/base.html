@@ -8,9 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}Todo list{% endblock title %}</title>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/navbar.css" %}">
 </head>
 <body>
-    {% include "navigation.html" %}
-    {% block content %}{% endblock content %}
+    <nav class="navbar">
+        <ul class="menu">
+            <li><a href="{% url "task-list" %}">All tasks</a></li>
+            {% block menu %}{% endblock %}
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>{% block page_header %}Something{% endblock page_header %}</h1>
+        {% block content %}{% endblock content %}
+    </div>
 </body>
 </html>
