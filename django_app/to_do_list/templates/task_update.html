@@ -1,25 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}Add task{% endblock title %}
+{% block menu %}
+    <li><a href="{% url "task-view" task.id  %}">Go back to the task</a></li>
+{% endblock menu %}
+
+{% block page_header %}Update a task{% endblock page_header %}
 
 {% block content %}
 <div>
     <h1>Edit task {{ task.id }}</h1>
     <form action="{% url "task-update" task.id %}" method="post">
-    {% csrf_token %}
-    <label>Title:</label><br/>
-    <input type="text" name="title" value="{{ task.title }}"/><br/>
-    <select name="status">
-        {% for value, name in status_choices %}
-            <option value="{{ value }}">{{ name }}</option>
-        {% endfor %}
-    </select><br/>
-    <label>Until:</label><br/>
-    <input type="text" name="up_to" value="{{ task.up_to }}"/><br/>
-    <label for="description">Description:</label><br>
-    <textarea id="description" name="description">
-        {{ task.description }}</textarea><br>
-    <input type="submit" value="Create"/>
-</form>
+        {% include "task_form.html" %}
+        <input type="submit" value="Update"/>
+    </form>
 </div>
 {% endblock content %}

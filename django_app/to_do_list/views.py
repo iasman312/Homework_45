@@ -38,6 +38,24 @@ def task_update_view(request, pk):
     task = get_object_or_404(Task, id=pk)
 
     if request.method == 'GET':
-        return render(request, 'task_update.html', context={'task': task})
+        return render(request, 'task_update.html',
+                      context={'task': task, 'status_choices': status_choices})
     elif request.method == 'POST':
-        pass
+        task.title = request.POST.get("title")
+        task.status = request.POST.get("status")
+        task.up_to = request.POST.get("up_to")
+        if not task.up_to:
+            task.up_to = None
+        task.description = request.POST.get("description")
+        task.save()
+        return redirect('task-view', pk=task.id)
+
+
+def task_delete_view(request, pk):
+    task = get_object_or_404(Task, id=pk)
+
+    if request.method == 'GET':
+        return render(request, 'task_delete.html', context={'task': task})
+    elif request.method == 'POST':
+        task.delete()
+        return redirect('task-list')

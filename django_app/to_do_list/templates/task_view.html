@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Task view{% endblock title %}
+{% block menu %}
+    <li><a href="{% url "task-add" %}">Add a task</a></li>
+    <li><a href="{% url "task-update" task.id %}">Update the task</a></li>
+    <li><a href="{% url "task-delete" task.id %}">Delete the task</a></li>
+{% endblock menu %}
+
+{% block page_header %}Task {{ task.id }}{% endblock page_header %}
 
 {% block content %}
 <div>
