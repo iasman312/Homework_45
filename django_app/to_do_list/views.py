@@ -32,3 +32,12 @@ def task_create_view(request):
             description=description,
         )
         return redirect('task-view', pk=task.id)
+
+
+def task_update_view(request, pk):
+    task = get_object_or_404(Task, id=pk)
+
+    if request.method == 'GET':
+        return render(request, 'task_update.html', context={'task': task})
+    elif request.method == 'POST':
+        pass
